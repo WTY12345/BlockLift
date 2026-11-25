@@ -1,6 +1,7 @@
 '''Fetch the CoRe inputs listed in the SRIP artifact at its pinned commit.'''
 from concurrent.futures import ThreadPoolExecutor
 import csv
+import gzip
 from pathlib import Path, PurePosixPath
 from shutil import copyfileobj
 from time import sleep
@@ -18,14 +19,21 @@ def download(relative):
     target.parent.mkdir(parents=True, exist_ok=True)
     partial = target.with_suffix(target.suffix + ".part")
     upstream = PurePosixPath("benchmark/instances", *relative.parts[1:])
-    request = Request(SOURCE + quote(upstream.as_posix()), headers={"User-Agent": "BlockLift-reproduction"})
+    # The pinned dataset stores this large graph only as a gzip file.
+    compressed = upstream.name == "queen200x200.col"
+    remote = upstream.as_posix() + (".gz" if compressed else "")
+    request = Request(SOURCE + quote(remote), headers={"User-Agent": "BlockLift-reproduction"})
     for retry in range(3):
         try:
             with urlopen(request, timeout=90) as response, partial.open("wb") as out:
-                copyfileobj(response, out, length=1024 * 1024)
+                if compressed:
+                    with gzip.GzipFile(fileobj=response) as graph:
+                        copyfileobj(graph, out, length=1024 * 1024)
+                else:
+                    copyfileobj(response, out, length=1024 * 1024)
             partial.replace(target)
             return
-        except OSError:
+        except (OSError, EOFError):
             partial.unlink(missing_ok=True)
             if retry == 2:
                 raise

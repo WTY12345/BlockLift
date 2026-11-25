@@ -102,4 +102,4 @@ python -X utf8 download_benchmark.py
 python -X utf8 run_benchmark.py --seconds 15 --output reproduction.jsonl
 ```
 
-下载约 300 MB。用相同源码、预算及输出文件可续跑。15 秒是程序内搜索预算，输入及验证另计。参考实验在 CoRe 693 例上交付 627 条合法路径并证明 66 例不可达。设备性能会影响限时搜索。仓库附带原始逐例见证及参照结果。 [固定提交的数据来源](https://github.com/TakehideSoh/KR2026/tree/df807b6b6ea66b7ec37a5371c58967eecc5ce762/benchmark) · [693 例实验报告](reports/core-693.md) · [公开方法对照](reports/comparison.md) · [七例补充实验](reports/seven-uncapped.md)
+准备约 300 MB 的磁盘空间。下载脚本会解压上游以 gzip 发布的最大皇后图。用相同源码、预算及输出文件可续跑。15 秒是程序内搜索预算，输入及验证另计。参考实验在 CoRe 693 例上交付 627 条合法路径并证明 66 例不可达。设备性能会影响限时搜索。仓库附带原始逐例见证及参照结果。 [固定提交的数据来源](https://github.com/TakehideSoh/KR2026/tree/df807b6b6ea66b7ec37a5371c58967eecc5ce762/benchmark) · [693 例实验报告](reports/core-693.md) · [公开方法对照](reports/comparison.md) · [七例补充实验](reports/seven-uncapped.md)
