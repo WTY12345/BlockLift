@@ -85,21 +85,42 @@ $$
 - `unreachable` 来自满足结构前提的证书，或完成搜索后证明端点不连通。搜索预算耗尽、节点超限等返回未判定类结果。
 - 路径的通用下界是 $|T\setminus S|$，因为每步最多加入一个缺失的目标顶点。达到此下界时可证明最短。皇后图限长搜索使用 $h(I)=|T\setminus I|$ 剪枝，只有完整核验排除所有更短路径时才据此认证。特定结构也可给出独立下界。对照公开最佳长度与证明全局最短分别记录。 [命令行验证](blocklift/cli.py) · [限长搜索](blocklift/queen_refinement.py)
 
-## 7. 运行与复现
+## 7. 从零复现
 
-参考环境为 Windows、Python 3.14.2、NumPy 2.4.3 和 SciPy 1.18.1。下列命令在仓库根目录运行，求解无需模型或 API 密钥。
+### 获取代码并创建环境
 
-```bash
-python -m pip install -r requirements.txt
-python -X utf8 -m blocklift examples/tiny.col examples/tiny.dat --output example-result.json
-python -X utf8 -m blocklift examples/tiny.col examples/tiny.dat --verify example-result.json
+准备 Git 和 Python 3.14。参考实验使用 Windows 11、Python 3.14.2、NumPy 2.4.3 和 SciPy 1.18.1。以下命令以 Windows PowerShell 为例。也可从 GitHub 下载 ZIP、解压后进入仓库根目录。安装依赖及下载数据时需要网络，求解无需模型、API 密钥或 GitHub 登录。
+
+```powershell
+git clone https://github.com/WTY12345/BlockLift.git
+cd BlockLift
+git rev-parse HEAD
+py -3.14 -m venv .venv
+$Python = ".\.venv\Scripts\python.exe"
+& $Python -m pip install -r requirements.txt
 ```
 
-小例子的解为一步。图文件用 DIMACS 风格的 `p` 和 `e` 行，端点用 `s` 和 `t` 行，顶点从 1 编号。`--family generic` 可用于自定义图，`--moves-out moves.txt` 可导出逐步验证的移动列表，`--quality` 尝试继续改短。
+如果安装的 Python 没有 `py` 启动器，用 `python -m venv .venv`，并先确认 `python --version`。Linux 或 macOS 可用 `python3.14 -m venv .venv`，将下面 PowerShell 命令中开头的 `& $Python` 换成 `.venv/bin/python`。完整评测已在 Windows 上核验。
 
-```bash
-python -X utf8 download_benchmark.py
-python -X utf8 run_benchmark.py --seconds 15 --output reproduction.jsonl
+### 先跑一个一步样例
+
+```powershell
+& $Python -X utf8 -m blocklift examples/tiny.col examples/tiny.dat --output example-result.json
+& $Python -X utf8 -m blocklift examples/tiny.col examples/tiny.dat --verify example-result.json
 ```
 
-准备约 300 MB 的磁盘空间。下载脚本会解压上游以 gzip 发布的最大皇后图。用相同源码、预算及输出文件可续跑。15 秒是程序内搜索预算，输入及验证另计。参考实验在 CoRe 693 例上交付 627 条合法路径并证明 66 例不可达。设备性能会影响限时搜索。仓库附带原始逐例见证及参照结果。 [固定提交的数据来源](https://github.com/TakehideSoh/KR2026/tree/df807b6b6ea66b7ec37a5371c58967eecc5ce762/benchmark) · [693 例实验报告](reports/core-693.md) · [公开方法对照](reports/comparison.md) · [七例补充实验](reports/seven-uncapped.md)
+第二条命令应输出 `{"status": "verified", "length": 1}`。图文件用 DIMACS 风格的 `p` 和 `e` 行，端点用 `s` 和 `t` 行，顶点从 1 编号。`--family generic` 可用于自定义图，`--moves-out moves.txt` 可导出逐步验证的移动列表，`--quality` 尝试继续改短。
+
+### 下载数据、运行并独立核验 CoRe 693 例
+
+```powershell
+& $Python -X utf8 download_benchmark.py
+& $Python -X utf8 run_benchmark.py --seconds 15 --output reproduction.jsonl
+& $Python -X utf8 verify_benchmark.py reproduction.jsonl
+```
+
+1. **下载。** 准备至少 300 MB 的数据空间。脚本从固定上游提交下载 1,212 个不同图和端点文件，解压最大的皇后图。结束时显示 `1212/1212 input files ready`。网络中断后可重跑下载脚本。 [固定数据来源](https://github.com/TakehideSoh/KR2026/tree/df807b6b6ea66b7ec37a5371c58967eecc5ce762/benchmark)
+2. **运行。** 批量脚本从图和端点求解，逐例结果写入 JSONL。用相同源码、预算和输出文件可续跑。要重做完整一轮，换一个新的输出文件名。15 秒是程序检查点执行的搜索预算，输入解析及验证另计。参考机上全量 CLI 运行约 5 分钟，包含输入解析和见证核验，下载另计。
+3. **独立核验。** 核验脚本不调用求解器，检查 693 个实例恰好各出现一次，重放显式路径，验证压缩见证，并复核这套数据的三类不可达结论。核验成功时参考结果为 **627 条合法路径、66 例证实不可达、0 例未判定**。它还会输出每类证据数量、相对公开步数的比较及超时统计。可把第三条命令的输入换成 `results/core-693-run.jsonl` 来核验仓库已有记录。
+
+两轮参考实验的可达性结论逐例一致，627 条可达路径中有 5 条长度不同。请在结果中记录 Git 提交、环境、预算、状态数和路径长度差异。具体步数和耗时会受设备与定时检查影响。历史参考运行的原始记录使用其运行时归档标识，新运行记录当前源码哈希。 [693 例实验报告](reports/core-693.md) · [逐例参考记录](results/core-693-run.jsonl) · [公开方法对照](reports/comparison.md) · [七例补充实验](reports/seven-uncapped.md)
