@@ -1,7 +1,7 @@
 __pycache__/
 *.py[cod]
 .venv/
-srip对照/instances/
+/benchmark/instances/
 .local/
 /reproduction.jsonl
 /example-result.json

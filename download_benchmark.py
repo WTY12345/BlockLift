@@ -7,7 +7,7 @@ from time import sleep
 from urllib.parse import quote
 from urllib.request import Request, urlopen
 
-ROOT = Path(__file__).resolve().parent / "srip对照"
+ROOT = Path(__file__).resolve().parent / "benchmark"
 SOURCE = "https://raw.githubusercontent.com/TakehideSoh/KR2026/df807b6b6ea66b7ec37a5371c58967eecc5ce762/"
 
 
@@ -33,7 +33,7 @@ def download(relative):
 
 
 def main():
-    with (ROOT / "official_693.csv").open(encoding="utf-8-sig", newline="") as source:
+    with (ROOT / "core-693.csv").open(encoding="utf-8-sig", newline="") as source:
         manifest = list(csv.reader(source))
     if len(manifest) != 693 or len({tuple(row) for row in manifest}) != 693:
         raise ValueError("Expected 693 unique case pairs")
