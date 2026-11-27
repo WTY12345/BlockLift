@@ -1,0 +1,89 @@
+{
+  "counts": {
+    "found": 627,
+    "unreachable": 66
+  },
+  "representations": {
+    "moves": 490,
+    "compressed": 137
+  },
+  "unreachable_certificates": {
+    "grid_phase": 47,
+    "complete_independent_bfs": 1,
+    "pigeonhole": 18
+  },
+  "optimum": {
+    "independently_met_endpoint_lower_bound": 374,
+    "matched_external_exact_reference": 87,
+    "path_only": 117,
+    "solver_structural_or_bounded_proof": 49
+  },
+  "versus_original": {
+    "equal": 622,
+    "shorter": 3,
+    "longer": 2
+  },
+  "versus_public": {
+    "equal": 563,
+    "longer": 6,
+    "shorter": 6
+  },
+  "exact_references": {
+    "equal": 484
+  },
+  "disagreements": [],
+  "path_length_differences": [
+    {
+      "name": "queen070x070_04_7426.dat",
+      "original": 35,
+      "reproduced": 34
+    },
+    {
+      "name": "queen080x080_04_4954.dat",
+      "original": 39,
+      "reproduced": 37
+    },
+    {
+      "name": "queen090x090_01_8978.dat",
+      "original": 48,
+      "reproduced": 49
+    },
+    {
+      "name": "queen200x200_03_0327.dat",
+      "original": 30,
+      "reproduced": 29
+    },
+    {
+      "name": "LGC_exp_instance009_01.dat",
+      "original": 8579,
+      "reproduced": 20833
+    }
+  ],
+  "status_changes": [],
+  "solve_seconds": 215.76529340000525,
+  "median_solve_seconds": 0.010555099999692175,
+  "end_to_end_seconds": 312.4302817999542,
+  "overrun": [
+    {
+      "name": "LGC_exp_instance006_01.dat",
+      "seconds": 15.288686300000336
+    },
+    {
+      "name": "LGC_exp_instance007_01.dat",
+      "seconds": 15.180605599998671
+    },
+    {
+      "name": "LGC_exp_instance008_01.dat",
+      "seconds": 15.170054500000333
+    },
+    {
+      "name": "LGC_exp_instance009_01.dat",
+      "seconds": 15.02691380000033
+    },
+    {
+      "name": "LGC_exp_instance010_01.dat",
+      "seconds": 15.061052799999743
+    }
+  ],
+  "audit_seconds": 13.343608700000914
+}
