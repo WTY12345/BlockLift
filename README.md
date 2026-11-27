@@ -1,6 +1,6 @@
-# BlockLift for independent set reconfiguration
-
 [![English — Current](https://img.shields.io/badge/English-Current-1f2937?style=for-the-badge)](README.md)  [![简体中文 — 切换语言](https://img.shields.io/badge/%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-%E5%88%87%E6%8D%A2%E8%AF%AD%E8%A8%80-1769AA?style=for-the-badge)](README.zh-CN.md)
+
+# BlockLift for independent set reconfiguration
 
 BlockLift solves independent set reconfiguration under token jumping. It retains each local configuration's effect on the rest of the graph and its connectivity within that interface. The solver searches the resulting quotient and lifts a successful walk to legal moves on the original graph. It also includes specialized solvers and budgeted generic search.
 
@@ -58,7 +58,7 @@ At 1,024 matched pairs, the methods take similar time on the path family and A* 
 Use Python 3.14. The reference runs used Windows 11, Python 3.14.2, NumPy 2.4.3, and SciPy 1.18.1. The commands below are for PowerShell. On Linux and macOS, use your virtual environment's Python executable in place of the PowerShell invocation.
 
 ~~~powershell
-git clone --branch codex/ablation-reproduction https://github.com/WTY12345/BlockLift.git
+git clone https://github.com/WTY12345/BlockLift.git
 cd BlockLift
 py -3.14 -m venv .venv
 $Python = ".\.venv\Scripts\python.exe"

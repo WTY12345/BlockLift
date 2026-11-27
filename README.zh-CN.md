@@ -1,6 +1,6 @@
-# 阻挡摘要法（BlockLift）
-
 [![English — Switch language](https://img.shields.io/badge/English-Switch%20language-1769AA?style=for-the-badge)](README.md)  [![简体中文 — 当前](https://img.shields.io/badge/%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-%E5%BD%93%E5%89%8D-1f2937?style=for-the-badge)](README.zh-CN.md)
+
+# 阻挡摘要法（BlockLift）
 
 阻挡摘要法求解**令牌跳跃下的独立集重构**。核心做法是把局部状态的对外阻挡关系和局部连通性保留下来，在较小的状态图中搜索，再把走法还原成原图上的合法移动。对满足结构条件的实例，摘要用于精确判定可达性。通用分支也用阻挡信息生成候选，但限时搜索可能返回未判定。
 
