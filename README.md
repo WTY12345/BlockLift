@@ -1,5 +1,7 @@
 # 阻挡摘要法（BlockLift）
 
+[![简体中文](https://img.shields.io/badge/%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-%E5%BD%93%E5%89%8D-246C9B)](README.md) · [![English](https://img.shields.io/badge/English-Read%20in%20English-555555)](README.en.md)
+
 阻挡摘要法求解**令牌跳跃下的独立集重构**。核心做法是把局部状态的对外阻挡关系和局部连通性保留下来，在较小的状态图中搜索，再把走法还原成原图上的合法移动。对满足结构条件的实例，摘要用于精确判定可达性。通用分支也用阻挡信息生成候选，但限时搜索可能返回未判定。
 
 ## 1. 问题与单步阻挡
@@ -170,3 +172,28 @@ CoRe 全量 693 例中，将饱和收缩及其路径提升与专用图族分支�
 ~~~
 
 四组脚本按已有输出续跑，配对脚本要求新的输出文件。已有同版本输入时，可为两个运行脚本指定 `--inputs`，指向下载程序生成的 `benchmark/instances`。路径见证由独立核验函数在原图重放，跨图族的乘积上限按每层候选对数计算。
+
+## 9. 定理 4 的同目标实验与论文数据
+
+固定三点核心和给定的完美匹配，将外围从 4 对增至 1,024 对。同目标 A* 对核心跳跃收费，对外围跳跃计零成本。两组都以最少核心跳跃为目标并返回合法见证。
+
+| 一秒内三轮均完成 | 完成数 |
+|---|---:|
+| 2-SAT 隐式求解 | 40/40 |
+| 同目标 A*，20,000 个状态 | 37/40 |
+| 同目标 A*，200,000 个状态 | 38/40 |
+
+1,024 对的链式例上两者耗时接近，稀疏例上 A* 更快。最大绕行例中，2-SAT 中位耗时 6.22 毫秒，A* 在一秒预算下触及 20 万状态上限。将预算提高到 5 秒、100 万状态后，A* 三轮均解出该例，中位耗时 4.60 秒，发现 781,839 个状态。256 对锁定例在该扩充预算下仍触限。实验使用独立的给定核心实现。
+
+![图 4，固定核心时的绕行规模和同规模图族比较](experiments/matched-exterior/figures/Fig4.png)
+
+[实验与复现说明](experiments/matched-exterior/README.md) · [矢量图](experiments/matched-exterior/figures/Fig4.pdf) · [CoRe 论文口径逐例表](experiments/matched-exterior/data/core-paper-per-instance.csv)
+
+从仓库根目录执行下列命令可离线重算论文表格，并可重跑定理 4 实验。审稿记录统一取自第二轮独立复现，其中公开步数对照为 6 短、563 平、6 长。
+
+~~~powershell
+cd experiments/matched-exterior
+python -X utf8 core_reproduction_table.py --output-dir checked
+python -X utf8 summarize_matched.py --original data/matched-original.jsonl --same-objective data/matched-core-only.jsonl --large-cap data/matched-large-cap.jsonl --output checked/matched-summary.json
+python -X utf8 matched_core_only.py --seconds 1 --repeats 3 --caps 20000 200000 --output matched-core-only-rerun.jsonl
+~~~

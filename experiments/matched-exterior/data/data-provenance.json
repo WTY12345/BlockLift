@@ -1,0 +1,10 @@
+{
+  "upstream_commit": "df807b6b6ea66b7ec37a5371c58967eecc5ce762",
+  "total": 1212,
+  "matched": 1212,
+  "issues": [],
+  "compressed_input": {
+    "gzip_blob_sha1": "b8db713a07d18212efe9559338c4a1624b4d4a20",
+    "decoded_sha256": "a986ea33621eec8dff9ef463dcaa058a30730a55ef8bbf12f496f2e75f620664"
+  }
+}

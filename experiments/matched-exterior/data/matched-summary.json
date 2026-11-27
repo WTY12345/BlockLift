@@ -1,0 +1,502 @@
+{
+  "original": {
+    "implicit": {
+      "statuses": {
+        "complete": 40
+      },
+      "median_ms": 0.10254999983771995,
+      "median_peak_kib": 14.984375,
+      "lengths": [
+        3,
+        9,
+        17,
+        25,
+        65,
+        257,
+        1025
+      ],
+      "profiling_statuses": {
+        "complete": 40
+      }
+    },
+    "explicit": {
+      "statuses": {
+        "complete": 22,
+        "assignment_cap": 18
+      },
+      "median_ms": 19.677949999731936,
+      "median_peak_kib": 1686.857421875,
+      "lengths": [
+        3,
+        9,
+        17
+      ],
+      "profiling_statuses": {
+        "complete": 22,
+        "assignment_cap": 18
+      }
+    },
+    "astar": {
+      "statuses": {
+        "complete": 22,
+        "state_cap": 18
+      },
+      "median_ms": 21.351400000185095,
+      "median_peak_kib": 969.5625,
+      "lengths": [
+        3,
+        9,
+        17
+      ],
+      "profiling_statuses": {
+        "complete": 22,
+        "state_cap": 18
+      }
+    }
+  },
+  "same_objective": {
+    "20000": {
+      "statuses": {
+        "complete": 37,
+        "state_cap": 3
+      },
+      "median_ms": 0.06414999984372116,
+      "median_peak_kib": 8.9453125,
+      "lengths": [
+        3,
+        9,
+        17,
+        25,
+        65
+      ],
+      "profiling_statuses": {
+        "complete": 37,
+        "state_cap": 3
+      }
+    },
+    "200000": {
+      "statuses": {
+        "complete": 38,
+        "state_cap": 2
+      },
+      "median_ms": 0.0646000003143854,
+      "median_peak_kib": 8.9453125,
+      "lengths": [
+        3,
+        9,
+        17,
+        25,
+        65,
+        257
+      ],
+      "profiling_statuses": {
+        "complete": 38,
+        "time_cap": 2
+      }
+    }
+  },
+  "selected": [
+    {
+      "family": "path",
+      "pairs": 4,
+      "implicit": {
+        "statuses": {
+          "complete": 1
+        },
+        "median_ms": 0.03699999979289714,
+        "median_peak_kib": 3.7578125,
+        "lengths": [
+          3
+        ],
+        "profiling_statuses": {
+          "complete": 1
+        }
+      },
+      "core_only": {
+        "statuses": {
+          "complete": 1
+        },
+        "median_ms": 0.04550000039671431,
+        "median_peak_kib": 3.6796875,
+        "lengths": [
+          3
+        ],
+        "profiling_statuses": {
+          "complete": 1
+        }
+      }
+    },
+    {
+      "family": "path",
+      "pairs": 16,
+      "implicit": {
+        "statuses": {
+          "complete": 1
+        },
+        "median_ms": 0.061499999901570845,
+        "median_peak_kib": 8.5078125,
+        "lengths": [
+          3
+        ],
+        "profiling_statuses": {
+          "complete": 1
+        }
+      },
+      "core_only": {
+        "statuses": {
+          "complete": 1
+        },
+        "median_ms": 0.04279999984646565,
+        "median_peak_kib": 8.4140625,
+        "lengths": [
+          3
+        ],
+        "profiling_statuses": {
+          "complete": 1
+        }
+      }
+    },
+    {
+      "family": "path",
+      "pairs": 1024,
+      "implicit": {
+        "statuses": {
+          "complete": 1
+        },
+        "median_ms": 4.437900000084483,
+        "median_peak_kib": 1062.078125,
+        "lengths": [
+          3
+        ],
+        "profiling_statuses": {
+          "complete": 1
+        }
+      },
+      "core_only": {
+        "statuses": {
+          "complete": 1
+        },
+        "median_ms": 4.325800000060553,
+        "median_peak_kib": 1044.71484375,
+        "lengths": [
+          3
+        ],
+        "profiling_statuses": {
+          "complete": 1
+        }
+      }
+    },
+    {
+      "family": "sparse",
+      "pairs": 24,
+      "implicit": {
+        "statuses": {
+          "complete": 3
+        },
+        "median_ms": 0.13239999998404528,
+        "median_peak_kib": 17.640625,
+        "lengths": [
+          3
+        ],
+        "profiling_statuses": {
+          "complete": 3
+        }
+      },
+      "core_only": {
+        "statuses": {
+          "complete": 3
+        },
+        "median_ms": 0.0625000002401066,
+        "median_peak_kib": 8.9453125,
+        "lengths": [
+          3
+        ],
+        "profiling_statuses": {
+          "complete": 3
+        }
+      }
+    },
+    {
+      "family": "sparse",
+      "pairs": 1024,
+      "implicit": {
+        "statuses": {
+          "complete": 3
+        },
+        "median_ms": 7.236500000090018,
+        "median_peak_kib": 1559.234375,
+        "lengths": [
+          3
+        ],
+        "profiling_statuses": {
+          "complete": 3
+        }
+      },
+      "core_only": {
+        "statuses": {
+          "complete": 3
+        },
+        "median_ms": 5.135099999733939,
+        "median_peak_kib": 1095.6875,
+        "lengths": [
+          3
+        ],
+        "profiling_statuses": {
+          "complete": 3
+        }
+      }
+    },
+    {
+      "family": "detour",
+      "pairs": 256,
+      "implicit": {
+        "statuses": {
+          "complete": 1
+        },
+        "median_ms": 1.231400000051508,
+        "median_peak_kib": 233.3046875,
+        "lengths": [
+          257
+        ],
+        "profiling_statuses": {
+          "complete": 1
+        }
+      },
+      "core_only": {
+        "statuses": {
+          "complete": 1
+        },
+        "median_ms": 61.655700000301294,
+        "median_peak_kib": 15741.70703125,
+        "lengths": [
+          257
+        ],
+        "profiling_statuses": {
+          "complete": 1
+        }
+      }
+    },
+    {
+      "family": "detour",
+      "pairs": 1024,
+      "implicit": {
+        "statuses": {
+          "complete": 1
+        },
+        "median_ms": 6.2230000003182795,
+        "median_peak_kib": 1112.21875,
+        "lengths": [
+          1025
+        ],
+        "profiling_statuses": {
+          "complete": 1
+        }
+      },
+      "core_only": {
+        "statuses": {
+          "state_cap": 1
+        },
+        "median_ms": 758.9388999999755,
+        "median_peak_kib": 43152.05078125,
+        "lengths": [],
+        "profiling_statuses": {
+          "time_cap": 1
+        }
+      }
+    },
+    {
+      "family": "frozen",
+      "pairs": 256,
+      "implicit": {
+        "statuses": {
+          "complete": 1
+        },
+        "median_ms": 0.15700000039942097,
+        "median_peak_kib": 117.7265625,
+        "lengths": [],
+        "profiling_statuses": {
+          "complete": 1
+        }
+      },
+      "core_only": {
+        "statuses": {
+          "state_cap": 1
+        },
+        "median_ms": 319.02490000038597,
+        "median_peak_kib": 43974.578125,
+        "lengths": [],
+        "profiling_statuses": {
+          "time_cap": 1
+        }
+      }
+    }
+  ],
+  "large_cap": [
+    {
+      "family": "frozen",
+      "pairs": 256,
+      "seed": 0,
+      "seconds": 5.0,
+      "repeats": 3,
+      "implicit": {
+        "status": "complete",
+        "statuses": [
+          "complete",
+          "complete",
+          "complete"
+        ],
+        "seconds": 0.0001629999997021514,
+        "peak_python_bytes": 120552,
+        "memory_status": "complete",
+        "work": 0,
+        "core_jumps": null,
+        "length": null,
+        "repeat_results": [
+          {
+            "status": "complete",
+            "seconds": 0.00020290000065870117,
+            "work": 0,
+            "core_jumps": null,
+            "length": null
+          },
+          {
+            "status": "complete",
+            "seconds": 0.0001629999997021514,
+            "work": 0,
+            "core_jumps": null,
+            "length": null
+          },
+          {
+            "status": "complete",
+            "seconds": 0.00015470000016648555,
+            "work": 0,
+            "core_jumps": null,
+            "length": null
+          }
+        ]
+      },
+      "core_only": {
+        "1000000": {
+          "status": "state_cap",
+          "statuses": [
+            "state_cap",
+            "state_cap",
+            "state_cap"
+          ],
+          "seconds": 4.466393600000629,
+          "peak_python_bytes": 174615556,
+          "memory_status": "time_cap",
+          "work": 1000000,
+          "core_jumps": null,
+          "length": null,
+          "repeat_results": [
+            {
+              "status": "state_cap",
+              "seconds": 3.9310757000002923,
+              "work": 1000000,
+              "core_jumps": null,
+              "length": null
+            },
+            {
+              "status": "state_cap",
+              "seconds": 4.799166599999808,
+              "work": 1000000,
+              "core_jumps": null,
+              "length": null
+            },
+            {
+              "status": "state_cap",
+              "seconds": 4.466393600000629,
+              "work": 1000000,
+              "core_jumps": null,
+              "length": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "family": "detour",
+      "pairs": 1024,
+      "seed": 0,
+      "seconds": 5.0,
+      "repeats": 3,
+      "implicit": {
+        "status": "complete",
+        "statuses": [
+          "complete",
+          "complete",
+          "complete"
+        ],
+        "seconds": 0.005975899999612011,
+        "peak_python_bytes": 1138912,
+        "memory_status": "complete",
+        "work": 3,
+        "core_jumps": 2,
+        "length": 1025,
+        "repeat_results": [
+          {
+            "status": "complete",
+            "seconds": 0.008040400000027148,
+            "work": 3,
+            "core_jumps": 2,
+            "length": 1025
+          },
+          {
+            "status": "complete",
+            "seconds": 0.0052145999998174375,
+            "work": 3,
+            "core_jumps": 2,
+            "length": 1025
+          },
+          {
+            "status": "complete",
+            "seconds": 0.005975899999612011,
+            "work": 3,
+            "core_jumps": 2,
+            "length": 1025
+          }
+        ]
+      },
+      "core_only": {
+        "1000000": {
+          "status": "complete",
+          "statuses": [
+            "complete",
+            "complete",
+            "complete"
+          ],
+          "seconds": 4.595670400000017,
+          "peak_python_bytes": 175636520,
+          "memory_status": "time_cap",
+          "work": 781839,
+          "core_jumps": 2,
+          "length": 1025,
+          "repeat_results": [
+            {
+              "status": "complete",
+              "seconds": 4.702044999999998,
+              "work": 781839,
+              "core_jumps": 2,
+              "length": 1025
+            },
+            {
+              "status": "complete",
+              "seconds": 4.595670400000017,
+              "work": 781839,
+              "core_jumps": 2,
+              "length": 1025
+            },
+            {
+              "status": "complete",
+              "seconds": 4.507645499999853,
+              "work": 781839,
+              "core_jumps": 2,
+              "length": 1025
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

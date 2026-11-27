@@ -1,0 +1,31 @@
+{
+  "source_sha256": "258e6fa64ffaa0c7101add669eef5603cb03a954fed8d61006e6d7746f9c24a7",
+  "comparison_input_sha256": "ac53d4e73d1ce03d44e613b8b313a08e47754e8d7169d1cba76718f9975bf80f",
+  "statuses": {
+    "found": 627,
+    "unreachable": 66
+  },
+  "representations": {
+    "moves": 490,
+    "compressed": 137
+  },
+  "nonreachability_certificates": {
+    "grid_phase": 47,
+    "complete_independent_bfs": 1,
+    "pigeonhole": 18
+  },
+  "public_comparison": {
+    "equal": 563,
+    "no_path_record": 52,
+    "longer": 6,
+    "shorter": 6
+  },
+  "optimum_evidence": {
+    "endpoint_lower_bound": 374,
+    "external_exact_length": 87,
+    "path_only": 117,
+    "solver_certificate": 49
+  },
+  "within_15s": 688,
+  "median_seconds": 0.010555099999692175
+}
